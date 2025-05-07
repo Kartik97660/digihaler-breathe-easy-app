@@ -45,9 +45,9 @@ const DoseCard: React.FC<DoseCardProps> = ({ title, current, total, type }) => {
       <div className="flex items-center">
         {/* For smaller screens - linear progress bar */}
         <div className="md:hidden w-full">
-          <Progress value={percentage} className={`h-3 ${isPuffy 
-            ? 'bg-blue-100' 
-            : 'bg-zeffo-background'}`} 
+          <Progress 
+            value={percentage} 
+            className={`h-3 ${isPuffy ? 'bg-blue-100' : 'bg-zeffo-background'}`}
             indicatorClassName={`${type === 'taken' 
               ? (isPuffy ? 'bg-puffy-primary' : 'bg-zeffo-primary') 
               : (isPuffy ? 'bg-puffy-accent' : 'bg-zeffo-secondary')}`} 
