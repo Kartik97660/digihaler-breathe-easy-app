@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import Logo from './Logo';
@@ -67,10 +66,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onSignOut, onToggle }) => {
         <div className="h-full flex flex-col">
           {/* Logo area - centered */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-center">
-            <div className="text-3xl font-bold">
-              <span className={isPuffy ? 'text-puffy-primary' : 'text-zeffo-primary'}>Digi</span>
-              <span className={isPuffy ? 'text-gray-800' : 'text-white'}>haler</span>
-            </div>
+            <Logo size="sm" />
           </div>
           
           {/* Menu items */}

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useTheme } from './ThemeProvider';
 import DoseCard from './DoseCard';
@@ -27,19 +26,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onSignOut }) => {
       <main className="flex-1 p-4 md:p-6 ml-0 md:ml-64">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="mb-8 flex items-center justify-between">
-            <div className="md:hidden">
-              <Logo size="sm" />
-            </div>
-            {!isSidebarOpen && (
-              <h1 className={`text-2xl font-bold ${isPuffy ? 'font-rounded' : 'font-display'}`}>
-                Digihaler
-              </h1>
-            )}
-            <div className={`px-3 py-1 rounded-full text-sm ${isPuffy 
-              ? 'bg-puffy-secondary text-puffy-primary' 
-              : 'bg-zeffo-muted text-zeffo-primary'}`}>
-              {isPuffy ? 'Puffy Mode' : 'Zeffo Mode'}
+          <div className="mb-8 flex flex-col items-center justify-center">
+            <Logo size="md" />
+            <div className="flex w-full items-center justify-end mt-2">
+              <div className={`px-3 py-1 rounded-full text-sm ${isPuffy 
+                ? 'bg-puffy-secondary text-puffy-primary' 
+                : 'bg-zeffo-muted text-zeffo-primary'}`}>
+                {isPuffy ? 'Puffy Mode' : 'Zeffo Mode'}
+              </div>
             </div>
           </div>
           

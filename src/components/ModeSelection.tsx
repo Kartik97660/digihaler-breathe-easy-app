@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useTheme } from './ThemeProvider';
 import Logo from './Logo';
@@ -10,7 +9,7 @@ interface ModeSelectionProps {
 }
 
 const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
-  const { setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
   const [selectedMode, setSelectedMode] = useState<'puffy' | 'zeffo' | null>(null);
   const [showParentQuestion, setShowParentQuestion] = useState(false);
   
@@ -31,14 +30,14 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
   
   if (showParentQuestion) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-white">
+      <div className={`min-h-screen flex flex-col items-center justify-center p-6 ${theme === 'zeffo' ? 'bg-black' : 'bg-white'}`}>
         <Logo size="lg" />
         
         <div className="w-full max-w-md mt-10">
-          <h2 className="text-2xl font-bold mb-6 text-center font-rounded text-puffy-primary">
+          <h2 className={`text-2xl font-bold mb-6 text-center font-rounded ${theme === 'zeffo' ? 'text-white' : 'text-puffy-primary'}`}>
             Puffy Mode
           </h2>
-          <p className="mb-8 text-center text-gray-600">
+          <p className={`mb-8 text-center ${theme === 'zeffo' ? 'text-gray-300' : 'text-gray-600'}`}>
             Are parents currently using it or the child?
           </p>
           
@@ -78,7 +77,7 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
   }
   
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-white">
+    <div className={`min-h-screen flex flex-col items-center justify-center ${theme === 'zeffo' ? 'bg-black' : 'bg-white'}`}>
       <div className="pt-8 pb-12">
         <Logo size="lg" />
       </div>
@@ -88,16 +87,16 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
         <motion.div
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="bg-blue-50 rounded-3xl p-6 shadow-md overflow-hidden"
+          className={`rounded-3xl p-6 shadow-md overflow-hidden cursor-pointer ${theme === 'zeffo' ? 'bg-gray-900' : 'bg-blue-50'}`}
           onClick={() => handleSelectMode('puffy')}
         >
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-3xl font-bold font-rounded text-puffy-primary mb-2">Puffy Mode</h2>
-              <p className="text-gray-500">For children</p>
+              <h2 className={`text-3xl font-bold font-rounded mb-2 ${theme === 'zeffo' ? 'text-white' : 'text-puffy-primary'}`}>Puffy Mode</h2>
+              <p className={`${theme === 'zeffo' ? 'text-gray-300' : 'text-gray-500'}`}>For children</p>
             </div>
           </div>
-          <Button className="puffy-button w-full mt-6">
+          <Button className={`w-full mt-6 ${theme === 'zeffo' ? 'bg-puffy-primary text-white' : 'puffy-button'}`}>
             Select
           </Button>
         </motion.div>
@@ -106,16 +105,16 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
         <motion.div
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="bg-zeffo-background rounded-3xl p-6 shadow-md overflow-hidden"
+          className={`rounded-3xl p-6 shadow-md overflow-hidden cursor-pointer ${theme === 'zeffo' ? 'bg-gray-800' : 'bg-zeffo-background'}`}
           onClick={() => handleSelectMode('zeffo')}
         >
           <div className="flex justify-between items-center">
             <div>
-              <h2 className="text-3xl font-bold font-display text-zeffo-primary mb-2">Zeffo Mode</h2>
-              <p className="text-gray-400">For age 16+</p>
+              <h2 className={`text-3xl font-bold font-display mb-2 ${theme === 'zeffo' ? 'text-white' : 'text-zeffo-primary'}`}>Zeffo Mode</h2>
+              <p className={`${theme === 'zeffo' ? 'text-gray-300' : 'text-gray-400'}`}>For age 16+</p>
             </div>
           </div>
-          <Button className="zeffo-button w-full mt-6">
+          <Button className={`w-full mt-6 ${theme === 'zeffo' ? 'bg-zeffo-primary text-white' : 'zeffo-button'}`}>
             Select
           </Button>
         </motion.div>

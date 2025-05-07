@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -25,16 +24,15 @@ const SignIn: React.FC<SignInProps> = ({ onSignIn }) => {
   const isPuffy = theme === 'puffy';
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center p-6
-      ${isPuffy ? 'bg-white' : 'bg-zeffo-background'}`}>
+    <div className={`min-h-screen flex flex-col items-center justify-center p-6 ${isPuffy ? 'bg-white' : 'bg-black'}`}>
       
       <div className="w-full max-w-md space-y-8">
         <div className="flex flex-col items-center">
           <Logo size="lg" />
-          <h1 className={`mt-6 text-2xl font-bold ${isPuffy ? 'font-rounded' : 'font-display'}`}>
+          <h1 className={`mt-6 text-2xl font-bold ${isPuffy ? 'font-rounded text-black' : 'font-display text-white'}`}>
             Welcome to Digihaler
           </h1>
-          <p className={`mt-2 text-sm ${isPuffy ? 'text-gray-600' : 'text-gray-400'}`}>
+          <p className={`mt-2 text-sm ${isPuffy ? 'text-gray-600' : 'text-gray-300'}`}>
             Sign in to manage your asthma care
           </p>
         </div>
