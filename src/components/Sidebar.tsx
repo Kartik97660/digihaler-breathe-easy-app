@@ -58,8 +58,11 @@ const Sidebar: React.FC<SidebarProps> = ({ onSignOut }) => {
       >
         <div className="h-full flex flex-col">
           {/* Logo area */}
-          <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-            <Logo size="sm" />
+          <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center">
+            <div className="text-3xl mr-2 font-bold">
+              <span className={isPuffy ? 'text-puffy-primary' : 'text-zeffo-primary'}>Di</span>
+              <span className={isPuffy ? 'text-gray-800' : 'text-white'}>haler</span>
+            </div>
           </div>
           
           {/* Menu items */}
