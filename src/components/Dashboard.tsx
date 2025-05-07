@@ -27,7 +27,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onSignOut }) => {
               <Logo size="sm" />
             </div>
             <h1 className={`text-2xl font-bold ${isPuffy ? 'font-rounded' : 'font-display'}`}>
-              Dashboard
+              Digihaler
             </h1>
             <div className={`px-3 py-1 rounded-full text-sm ${isPuffy 
               ? 'bg-puffy-secondary text-puffy-primary' 

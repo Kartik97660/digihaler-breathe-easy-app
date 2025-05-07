@@ -50,7 +50,6 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
                 bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-puffy-primary/30"
               onClick={handleParentResponse}
             >
-              <div className="text-4xl mb-4">👪</div>
               <div className="font-bold font-rounded">Parent</div>
             </motion.div>
             
@@ -61,7 +60,6 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
                 bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-puffy-primary/30"
               onClick={handleParentResponse}
             >
-              <div className="text-4xl mb-4">👧</div>
               <div className="font-bold font-rounded">Child</div>
             </motion.div>
           </div>
@@ -98,9 +96,6 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
               <h2 className="text-3xl font-bold font-rounded text-puffy-primary mb-2">Puffy Mode</h2>
               <p className="text-gray-500">For children</p>
             </div>
-            <div className="bg-blue-400 rounded-full p-3 flex items-center justify-center">
-              <span className="text-2xl">😊</span>
-            </div>
           </div>
           <Button className="puffy-button w-full mt-6">
             Select
@@ -118,9 +113,6 @@ const ModeSelection: React.FC<ModeSelectionProps> = ({ onModeSelect }) => {
             <div>
               <h2 className="text-3xl font-bold font-display text-zeffo-primary mb-2">Zeffo Mode</h2>
               <p className="text-gray-400">For age 16+</p>
-            </div>
-            <div className="bg-blue-500 rounded-full p-3 flex items-center justify-center">
-              <span className="text-2xl">👤</span>
             </div>
           </div>
           <Button className="zeffo-button w-full mt-6">
