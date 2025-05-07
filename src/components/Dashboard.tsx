@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from './ThemeProvider';
 import DoseCard from './DoseCard';
 import Sidebar from './Sidebar';
@@ -12,11 +12,16 @@ interface DashboardProps {
 const Dashboard: React.FC<DashboardProps> = ({ onSignOut }) => {
   const { theme } = useTheme();
   const isPuffy = theme === 'puffy';
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  
+  const handleSidebarToggle = (isOpen: boolean) => {
+    setIsSidebarOpen(isOpen);
+  };
   
   return (
     <div className={`min-h-screen flex ${isPuffy ? 'bg-gray-50' : 'bg-zeffo-background'}`}>
       {/* Sidebar */}
-      <Sidebar onSignOut={onSignOut} />
+      <Sidebar onSignOut={onSignOut} onToggle={handleSidebarToggle} />
       
       {/* Main content */}
       <main className="flex-1 p-4 md:p-6 ml-0 md:ml-64">
@@ -26,9 +31,11 @@ const Dashboard: React.FC<DashboardProps> = ({ onSignOut }) => {
             <div className="md:hidden">
               <Logo size="sm" />
             </div>
-            <h1 className={`text-2xl font-bold ${isPuffy ? 'font-rounded' : 'font-display'}`}>
-              Digihaler
-            </h1>
+            {!isSidebarOpen && (
+              <h1 className={`text-2xl font-bold ${isPuffy ? 'font-rounded' : 'font-display'}`}>
+                Digihaler
+              </h1>
+            )}
             <div className={`px-3 py-1 rounded-full text-sm ${isPuffy 
               ? 'bg-puffy-secondary text-puffy-primary' 
               : 'bg-zeffo-muted text-zeffo-primary'}`}>

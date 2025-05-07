@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTheme } from './ThemeProvider';
 import Logo from './Logo';
 import { Home, Info, ShoppingCart, LogOut } from 'lucide-react';
@@ -7,16 +7,24 @@ import { Button } from "@/components/ui/button";
 
 interface SidebarProps {
   onSignOut: () => void;
+  onToggle: (isOpen: boolean) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ onSignOut }) => {
+const Sidebar: React.FC<SidebarProps> = ({ onSignOut, onToggle }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const isPuffy = theme === 'puffy';
   
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
+    const newState = !isOpen;
+    setIsOpen(newState);
+    onToggle(newState);
   };
+  
+  // Notify parent of initial state
+  useEffect(() => {
+    onToggle(isOpen);
+  }, []);
   
   const menuItems = [
     { icon: <Home size={20} />, label: 'Home', isActive: true },
